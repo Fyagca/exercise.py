@@ -28,8 +28,17 @@ class Instagram:
     def getFollowers(self):
         self.browser.get(f"https://instagram.com/{self.username}")
         time.sleep(6)
-        followersLink = self.browser.find_element(By.XPATH,"/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/main/div/ul/li[2]/a")
-        followersLink.click()
+        self.browser.get(f"https://instagram.com/{self.username}/followers")
+        time.sleep(6)
+        dialog = self.browser.find_element(By.CSS_SELECTOR,"div[role=dialog]")
+        #still getting error to reach followers
+        followers = self.browser.find_elements(By.CLASS_NAME,"_ab8w  _ab94 _ab97 _ab9f _ab9k _ab9p  _ab9- _aba8 _abcm")
+        followerCount = len(dialog.find_elements(By.CSS_SELECTOR,"a"))
+        print(f"first count: {followers}")
+
+        for user in followers:
+            link = user.find_element(By.CSS_SELECTOR,"a").get_attribute("href")
+            print(link)
 instgrm = Instagram(email, password)
 instgrm.signIn()
 instgrm.getFollowers()
