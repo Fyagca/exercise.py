@@ -27,7 +27,17 @@ class Darkorbit:
         self.browser.get("https://it3.darkorbit.com/indexInternal.es?action=internalClan")
         membersBtn = self.browser.find_element(By.XPATH, "//*[@id='subNavTop']/ul/li[2]/a")
         membersBtn.click()
-
+    def ıvırZıvır(self):
+        tradeBtn = self.browser.find_element(By.XPATH,"//*[@id='trade_btn']")
+        tradeBtn.click()
+        time.sleep(3)
+        roboRep3 = self.browser.find_element(By.XPATH,"//*[@id='auction_content_hour']/div[1]/table/tbody[2]/div/div[1]/tr[1]/td[3]")
+        roboRep3.click()
+        time.sleep(3)
+        offerText = self.browser.find_element(By.XPATH,"//*[@id='auction_item_buy']/form/input[6]")
+        offerText.send_keys("10000")
+        offerText.send_keys(Keys.ENTER)
 
 darkorbit = Darkorbit(username,password)
 darkorbit.logIn()
+darkorbit.ıvırZıvır()
