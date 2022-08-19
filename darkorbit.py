@@ -40,4 +40,4 @@ class Darkorbit:
 
 darkorbit = Darkorbit(username,password)
 darkorbit.logIn()
-darkorbit.ıvırZıvır()
+#darkorbit.ıvırZıvır()
