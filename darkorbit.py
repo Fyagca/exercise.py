@@ -34,11 +34,19 @@ class Darkorbit:
         roboRep3 = self.browser.find_element(By.XPATH,"//*[@id='auction_content_hour']/div[1]/table/tbody[2]/div/div[1]/tr[1]/td[3]")
         roboRep3.click()
         time.sleep(1)
-        offerText = self.browser.find_element(By.XPATH,"//*[@id='auction_item_buy']/form/input[6]")
-        offerText.send_keys(Keys.BACKSPACE*10)
-        offerText.send_keys(100000)
-        time.sleep(1)
-        offerText.send_keys(Keys.ENTER)
+        bid = self.browser.find_element(By.XPATH,"//*[@id='item_hour_0_bid']").get_attribute("value")
+        bid = int(bid)
+        maxBid = 10000000
+        if bid == 0 | bid >= 10000 and bid <= maxBid:
+            offerText = self.browser.find_element(By.XPATH, "//*[@id='auction_item_buy']/form/input[6]")
+            offerText.send_keys(Keys.BACKSPACE * 10)
+            offerText.send_keys((bid+10000))
+            time.sleep(1)
+            offerText.send_keys(Keys.ENTER)
+
+
+
+
 
 
 darkorbit = Darkorbit(username,password)
