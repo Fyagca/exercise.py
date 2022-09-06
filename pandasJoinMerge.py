@@ -39,7 +39,7 @@ customersB = {
 df_customersA = pd.DataFrame(customersA,columns=["CustomerId","FirstName","LastName"])
 df_customersB = pd.DataFrame(customersB,columns=["CustomerId","FirstName","LastName"])
 
-result = pd.concat([df_customersA,df_customersB]) # default as axis=0
-result = pd.concat([df_customersA,df_customersB],axis=1) #axis=1 means
+result = pd.concat([df_customersA,df_customersB]) # default as axis=0 means rows
+result = pd.concat([df_customersA,df_customersB],axis=1) #axis=1 means columns
 
 print(result)
