@@ -12,6 +12,7 @@ while True:
         'phone':phone
     }
     if number == "q":
+        print(ogrenciler)
         break
 
 
